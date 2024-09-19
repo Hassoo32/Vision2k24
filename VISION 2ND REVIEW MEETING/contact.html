@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- site metas -->
+    <title>Contact</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+        rel="stylesheet">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- Custom CSS -->
+    <style>
+        .send_bt button {
+            background-color: #120a78;
+            /* Blue color similar to the logo */
+            color: #fff;
+            /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        .send_bt button:hover {
+            background-color: transparent;
+            /* Transparent background on hover */
+            color: #120a78;
+            /* Change text color to blue on hover */
+            border: 2px solid #120a78;
+            /* Add border on hover */
+            opacity: 0.8;
+            /* Slightly transparent */
+        }
+
+        .modal-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .modal-title {
+            margin-bottom: 20px;
+        }
+
+        .subscribe_modal .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .subscribe_bt button {
+            background-color: #120a78;
+            /* Blue color similar to the logo */
+            color: #fff;
+            /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        .subscribe_bt button:hover {
+            background-color: transparent;
+            /* Transparent background on hover */
+            color: #fff;
+            /* Change text color to blue on hover */
+            border: 2px solid #120a78;
+            /* Add border on hover */
+            opacity: 0.8;
+            /* Slightly transparent */
+        }
+
+        /* Blinking effect for Contact Us heading */
+        @keyframes blink {
+            0% {
+                color: #120a78;
+            }
+
+            50% {
+                color: black;
+            }
+
+            100% {
+                color: #f64646;
+            }
+        }
+
+        .contact_taital {
+            animation: blink 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 767px) {
+            .contact_section .container {
+                padding: 15px;
+            }
+
+            .contact_section_2 .row {
+                flex-direction: column;
+            }
+
+            .contact_section_2 .col-md-6 {
+                width: 100%;
+            }
+
+            .map-responsive iframe {
+                width: 100%;
+                height: auto;
+            }
+
+            .footer_section .container {
+                padding: 15px;
+            }
+
+            .footer_section_2 .row {
+                flex-direction: column;
+            }
+
+            .social_icon ul {
+                text-align: center;
+                padding: 0;
+            }
+
+            .social_icon ul li {
+                display: inline;
+                margin: 0 10px;
+            }
+
+            .footer_section_2 .address_text {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .contact_section .container {
+                padding: 30px;
+            }
+
+            .contact_section_2 .row {
+                flex-direction: row;
+            }
+
+            .contact_section_2 .col-md-6 {
+                width: 50%;
+            }
+
+            .map-responsive iframe {
+                width: 100%;
+                height: 360px;
+            }
+
+            .footer_section .container {
+                padding: 30px;
+            }
+
+            .social_icon ul {
+                text-align: left;
+            }
+
+            .footer_section_2 .address_text {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1400px) {
+            .contact_section .container {
+                padding: 40px;
+            }
+
+            .contact_section_2 .row {
+                flex-direction: row;
+            }
+
+            .contact_section_2 .col-md-6 {
+                width: 50%;
+            }
+
+            .map-responsive iframe {
+                width: 100%;
+                height: 360px;
+            }
+
+            .footer_section .container {
+                padding: 40px;
+            }
+
+            .social_icon ul {
+                text-align: left;
+            }
+
+            .footer_section_2 .address_text {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gellery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mission.html">Our Mission</a>
+                    </li>
+                </ul>
+                <a href="zakatcalculater.html"><button class="donate_btn" type="button">Zakat Calculator</button></a>
+            </div>
+        </nav>
+    </div>
+    <!-- header section end -->
+
+    <!-- contact section start -->
+    <div class="contact_section layout_padding">
+        <div class="container">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mail_section_1">
+                            <h1 class="contact_taital">Contact Us</h1>
+                            <form id="contactForm">
+                                <input type="text" class="mail_text_1" placeholder="Name" name="name"
+                                    pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces" required>
+                                <input type="email" class="mail_text_1" placeholder="Email" name="email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" title="Enter a valid email address"
+                                    required>
+                                <input type="tel" class="mail_text_1" placeholder="Phone Number" name="phone"
+                                    pattern="[0-9]+" title="Phone number should only contain numbers" required>
+                                <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="message"
+                                    required></textarea>
+                                <div class="send_bt"><button type="submit">SEND</button></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="map_main">
+                            <div class="map-responsive">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7057387.837924523!2d63.705115593917775!3d30.265861705480063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38db52d2f8fd751f%3A0x46b7a1f7e614925c!2sPakistan!5e0!3m2!1sen!2s!4v1721760086585!5m2!1sen!2s"
+                                    width="600" height="360" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact section end -->
+
+    <!-- Modal for Contact Form -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Thank You for Contacting Us!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalName"></p>
+                    <p id="modalEmail"></p>
+                    <p>Thank you for reaching out to us. We have received your message and will get back to you soon. If
+                        you have any questions in the meantime, feel free to contact us again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Modal for Subscription -->
+    <div class="modal fade subscribe_modal" id="subscribeModal" tabindex="-1" role="dialog"
+        aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscribeModalLabel">Subscription Confirmed!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="subscribeEmail"></p>
+                    <p>Thank you for subscribing to our newsletter. You will receive the latest updates and offers in
+                        your inbox. If you have any questions, feel free to reach out to us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- footer section start -->
+    <div class="footer_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="footer_logo"><img src="images/footer-logo.png" alt="Footer Logo"></div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">NAVIGATION</h4>
+                    <div class="footer_menu_main">
+                        <div class="footer_menu_left">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="donate.html">Donate</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer_menu_right">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="gellery.html">Gallery</a></li>
+                                    <li><a href="mission.html">Our Mission</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">address</h4>
+                    <p class="footer_text">North Karachi Aptech, Karachi, Pakistan</p>
+                    <p class="footer_text">+92 12345678</p>
+                    <p class="footer_text">shelteringheartorphanage@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer_section_2">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                        <div class="social_icon">
+                            <ul>
+                                <li><a href="https://www.google.com/search?gs_ssp=eJzj4tLP1TfIyK1MKy5TYDRgdGDw4khLTE5Nys_PBgBmYAfL&q=facebook&oq=&gs_lcrp=EgZjaHJvbWUqDwgBEC4YJxjHARjqAhjRAzIJCAAQIxgnGOoCMg8IARAuGCcYxwEY6gIY0QMyCQgCECMYJxjqAjIJCAMQIxgnGOoCMg8IBBAuGCcYxwEY6gIY0QMyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQkyMTg5ajBqMTWoAgiwAgE&sourceid=chrome&ie=UTF-8"><img src="images/fb-icon.png" alt="Facebook"></a></li>
+                                <li><a href="https://www.google.com/search?q=twitter&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWII1Mbg8nqF2GBFeqtLNBzJBuLy5Iw%3A1724477955279&ei=A3LJZpDgENaJkdUP1-m80Qo&gs_ssp=eJzj4tLP1TfIyDMsS05XYDRgdGDwYi8pzywpSS0CAFnOB00&oq=twitt&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXR3aXR0KgIIADIQEC4YgAQY0QMYxwEYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTILEAAYgAQYsQMYgwEyHRAuGIAEGNEDGMcBGIoFGJcFGNwEGN4EGOAE2AECSL4oUABYpxdwAngBkAEAmAHlBKAB2A-qAQkyLTQuMS4wLjG4AQPIAQD4AQGYAgmgAv0eqAITwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAg0QLhjHARgnGOoCGK8BwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICGRAuGIAEGNEDGEMYtAIYxwEYigUY6gLYAQHCAgoQIxiABBgnGIoFwgIQEC4YgAQYxwEYJxiKBRivAcICBBAjGCfCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIFEAAYgATCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgILEC4YgAQYsQMYgwHCAhMQLhiABBjRAxjHARgnGMkDGIoFwgIREAAYgAQYkQIYsQMYgwEYigXCAggQLhiABBixA8ICCxAAGIAEGJIDGIoFwgIHECMYsQIYJ8ICGRAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigXCAg0QABiABBixAxiDARgKmAMlugYGCAEQARgBugYGCAIQARgUkgcPMi4wLjMuMS4xLjEuMC4xoAfuTQ&sclient=gws-wiz-serp"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+                                <li><a href="https://www.google.com/search?q=linkedin&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIK0ivPVaCZFzWy7h-BlcPL9Gi_M2A%3A1724478043557&ei=W3LJZujfIeifkdUPvLD26Qc&oq=link&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGxpbmsqAggAMgoQIxiABBgnGIoFMhkQLhiABBixAxjRAxhDGIMBGMcBGMkDGIoFMhMQLhiABBixAxjRAxhDGMcBGIoFMgoQABiABBhDGIoFMhAQLhiABBhDGMcBGIoFGK8BMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigVIuCxQAFicFHABeAGQAQCYAa8CoAGxB6oBBTItMy4xuAEDyAEA-AEBmAIIoAL4OKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIKEC4YgAQYQxiKBcICEBAuGIAEGNEDGEMYxwEYigXCAiUQLhiABBixAxjRAxhDGIMBGMcBGIoFGJcFGNwEGN4EGOAE2AECwgINEAAYgAQYsQMYQxiKBcICKBAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigUYlwUY3AQY3gQY4ATYAQKYAxG6BgYIARABGAG6BgYIAhABGBSSBw0xLjAuMy4xLjctMi4xoAePPQ&sclient=gws-wiz-serp"><img src="images/linkedin-icon.png" alt="LinkedIn"></a></li>
+                                <li><a href="https://www.google.com/search?q=instagram&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIKQCTBOQ_C4b3NU6PMXS2NzRivgUA%3A1724477834890&ei=inHJZoOJNtadkdUPtfeQgA8&oq=insta&gs_lp=Egxnd3Mtd2l6LXNlcnAiBWluc3RhKgIIADIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTILEAAYgAQYsQMYgwEyEBAAGIAEGLEDGEMYgwEYigUyDhAAGIAEGLEDGIMBGIoFSNszUKYJWLkScAF4AZABApgB_RagAY9NqgEDOS00uAEDyAEA-AEBmAIDoALBJKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhQQABiABBjjBBi0AhjpBBjqAtgBAZgDFboGBggBEAEYAZIHBzEuNy0xLjGgB4so&sclient=gws-wiz-serp"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-9">
+                        <div class="newsletter_section">
+                            <input type="email" id="emailInput" class="address_text" placeholder="Enter Your Email"
+                                name="text">
+                            <button id="subscribeBtn" type="button" class="get_bt">SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript -->
+    <script src="js/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#imageCarousel").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true
+            });
+
+            // Handle contact form submission
+            $('#contactForm').on('submit', function (event) {
+                event.preventDefault();
+
+                // Get form values
+                var name = $(this).find('input[name="name"]').val();
+                var email = $(this).find('input[name="email"]').val();
+
+                // Update modal content
+                $('#modalName').text('Name: ' + name);
+                $('#modalEmail').text('Email: ' + email);
+
+                // Show the contact confirmation modal
+                $('#confirmationModal').modal('show');
+
+                // Optionally, clear the form fields
+                this.reset();
+            });
+
+            // Custom JavaScript for email validation and modal display
+            document.getElementById("subscribeBtn").addEventListener("click", function () {
+                const emailInput = document.getElementById("emailInput");
+                const email = emailInput.value.trim();
+
+                // Simple email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailRegex.test(email)) {
+                    emailInput.classList.add("blinking");
+                    setTimeout(() => {
+                        emailInput.classList.remove("blinking");
+                    }, 3000); // Remove blinking after 3 seconds
+                } else {
+                    // Hide blinking effect
+                    emailInput.classList.remove("blinking");
+                    // Show the subscribe modal
+                    $('#infoModal').modal('show');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

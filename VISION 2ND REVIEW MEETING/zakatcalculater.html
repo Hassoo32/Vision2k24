@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakat Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>About</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+        rel="stylesheet">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .zakatheading {
+            color: #2b2b8a;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info-section,
+        .calculator-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h2 {
+            color: #2b2b8a;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 315px;
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .total {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .result h2 {
+            color: #d9534f;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        .blink {
+            animation: blink-animation 1s infinite step-start;
+        }
+
+        @keyframes blink-animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+
+        .zakatheading.blink {
+            animation: blink-animation 1s infinite step-start;
+        }
+
+        @keyframes blink-animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand"><a href="index.html"><img src="images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html">Donate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gellery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mission.html">Our Mission</a>
+                        </li>
+                    </ul>
+                    <a href="zakatcalculater.html"><button class="donate_btn" type="submit">Zakat
+                            Calculator</button></a>
+                </div>
+        </nav>
+    </div>
+    <!-- header section end -->
+    <!-- zakat calculator section start -->
+    <div class="container">
+        <h1 class="zakatheading blink">Zakat Calculator</h1>
+
+        <div class="content">
+            <div class="info-section">
+                <h2>What is Zakat?</h2>
+                <p>Zakat is one of the five pillars of Islam. It is an obligatory charity, that helps in purifying one's
+                    wealth and is a significant part of the Islamic welfare system.</p>
+                <div class="video">
+                    <iframe src="https://www.youtube.com/embed/j8RxKCMvVlY?autoplay=1" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3>Why Pay Zakat?</h3>
+                <ul>
+                    <li><strong>It Purifies Your Wealth:</strong> The word “zakat” means to cleanse your wealth. Paying
+                        zakat allows us to cleanse our earnings and wealth.</li>
+                    <li><strong>It Helps the Community:</strong> Zakat is an integral part of the Islamic welfare
+                        system.</li>
+                    <li><strong>It Protects from Calamities:</strong> Zakat helps protect from calamities not only in
+                        this life but also protects from calamities in the hereafter.</li>
+                    <li><strong>Help Syria With Your 2.5%:</strong> Your Zakat could be just enough to support an orphan
+                        and help them survive.</li>
+                </ul>
+            </div>
+            <div class="calculator-section">
+                <h2>Calculate Your Zakat</h2>
+                <form id="zakat-form">
+                    <div class="form-group">
+                        <label for="cash">Cash at home and bank</label>
+                        <input type="number" id="cash" name="cash" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="gold">Value of gold you own</label>
+                        <input type="number" id="gold" name="gold" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="silver">Value of silver you own</label>
+                        <input type="number" id="silver" name="silver" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="investments">Investments and shares</label>
+                        <input type="number" id="investments" name="investments" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="money_owed">Money owed to you</label>
+                        <input type="number" id="money_owed" name="money_owed" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock in trade for sale</label>
+                        <input type="number" id="stock" name="stock" placeholder="0.00">
+                    </div>
+                    <div class="total">
+                        <h3>Total Assets: <span id="total_assets">0.00</span></h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenses">Expenses (tax, rent, bills)</label>
+                        <input type="number" id="expenses" name="expenses" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="short_term">Short term debts</label>
+                        <input type="number" id="short_term" name="short_term" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="other_expenses">Other Expenses</label>
+                        <input type="number" id="other_expenses" name="other_expenses" placeholder="0.00">
+                    </div>
+                    <div class="total">
+                        <h3>Total Expenses: <span id="total_expenses">0.00</span></h3>
+                    </div>
+                    <div class="result">
+                        <h3>Is Zakat Due?</h3>
+                        <p>If your total assets minus your total liabilities is more than $ 103,159 (Nisab), you need to
+                            pay Zakat.</p>
+                        <h2 id="zakat_due">ZAKAT NOT DUE</h2>
+                    </div>
+                    <button type="button" id="calculate-btn">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- zakat calculator section end -->
+    <!-- footer section start -->
+    <div class="footer_section layout_padding">
+        <div class="container" style="background-color: #222122;">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="footer_logo"><img src="images/footer-logo.png"></div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">NAVIGATION</h4>
+                    <div class="footer_menu_main">
+                        <div class="footer_menu_left">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="donate.html">Donate</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer_menu_right">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="gellery.html">Gallery</a></li>
+                                    <li><a href="mission.html">Our Mission</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">address</h4>
+                    <p class="footer_text">North Karachi Aptech, Karachi, Pakistan</p>
+                    <p class="footer_text">+92 12345678</p>
+                    <p class="footer_text">shelteringheartorphanage@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer_section_2">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                        <div class="social_icon">
+                            <ul>
+                                <li><a href="https://www.google.com/search?gs_ssp=eJzj4tLP1TfIyK1MKy5TYDRgdGDw4khLTE5Nys_PBgBmYAfL&q=facebook&oq=&gs_lcrp=EgZjaHJvbWUqDwgBEC4YJxjHARjqAhjRAzIJCAAQIxgnGOoCMg8IARAuGCcYxwEY6gIY0QMyCQgCECMYJxjqAjIJCAMQIxgnGOoCMg8IBBAuGCcYxwEY6gIY0QMyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQkyMTg5ajBqMTWoAgiwAgE&sourceid=chrome&ie=UTF-8"><img src="images/fb-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=twitter&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWII1Mbg8nqF2GBFeqtLNBzJBuLy5Iw%3A1724477955279&ei=A3LJZpDgENaJkdUP1-m80Qo&gs_ssp=eJzj4tLP1TfIyDMsS05XYDRgdGDwYi8pzywpSS0CAFnOB00&oq=twitt&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXR3aXR0KgIIADIQEC4YgAQY0QMYxwEYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTILEAAYgAQYsQMYgwEyHRAuGIAEGNEDGMcBGIoFGJcFGNwEGN4EGOAE2AECSL4oUABYpxdwAngBkAEAmAHlBKAB2A-qAQkyLTQuMS4wLjG4AQPIAQD4AQGYAgmgAv0eqAITwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAg0QLhjHARgnGOoCGK8BwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICGRAuGIAEGNEDGEMYtAIYxwEYigUY6gLYAQHCAgoQIxiABBgnGIoFwgIQEC4YgAQYxwEYJxiKBRivAcICBBAjGCfCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIFEAAYgATCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgILEC4YgAQYsQMYgwHCAhMQLhiABBjRAxjHARgnGMkDGIoFwgIREAAYgAQYkQIYsQMYgwEYigXCAggQLhiABBixA8ICCxAAGIAEGJIDGIoFwgIHECMYsQIYJ8ICGRAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigXCAg0QABiABBixAxiDARgKmAMlugYGCAEQARgBugYGCAIQARgUkgcPMi4wLjMuMS4xLjEuMC4xoAfuTQ&sclient=gws-wiz-serp"><img src="images/twitter-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=linkedin&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIK0ivPVaCZFzWy7h-BlcPL9Gi_M2A%3A1724478043557&ei=W3LJZujfIeifkdUPvLD26Qc&oq=link&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGxpbmsqAggAMgoQIxiABBgnGIoFMhkQLhiABBixAxjRAxhDGIMBGMcBGMkDGIoFMhMQLhiABBixAxjRAxhDGMcBGIoFMgoQABiABBhDGIoFMhAQLhiABBhDGMcBGIoFGK8BMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigVIuCxQAFicFHABeAGQAQCYAa8CoAGxB6oBBTItMy4xuAEDyAEA-AEBmAIIoAL4OKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIKEC4YgAQYQxiKBcICEBAuGIAEGNEDGEMYxwEYigXCAiUQLhiABBixAxjRAxhDGIMBGMcBGIoFGJcFGNwEGN4EGOAE2AECwgINEAAYgAQYsQMYQxiKBcICKBAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigUYlwUY3AQY3gQY4ATYAQKYAxG6BgYIARABGAG6BgYIAhABGBSSBw0xLjAuMy4xLjctMi4xoAePPQ&sclient=gws-wiz-serp"><img src="images/linkedin-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=instagram&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIKQCTBOQ_C4b3NU6PMXS2NzRivgUA%3A1724477834890&ei=inHJZoOJNtadkdUPtfeQgA8&oq=insta&gs_lp=Egxnd3Mtd2l6LXNlcnAiBWluc3RhKgIIADIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTILEAAYgAQYsQMYgwEyEBAAGIAEGLEDGEMYgwEYigUyDhAAGIAEGLEDGIMBGIoFSNszUKYJWLkScAF4AZABApgB_RagAY9NqgEDOS00uAEDyAEA-AEBmAIDoALBJKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhQQABiABBjjBBi0AhjpBBjqAtgBAZgDFboGBggBEAEYAZIHBzEuNy0xLjGgB4so&sclient=gws-wiz-serp"><img src="images/instagram-icon.png"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-9">
+                        <input type="text" class="address_text" id="email-input" placeholder="Enter your Email"
+                            name="text">
+                        <button type="button" class="get_bt" id="subscribe-btn">SUBSCRIBE</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog"
+                            aria-labelledby="subscribeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="subscribeModalLabel">Subscription Status</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Message will be injected here -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript -->
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function () {
+            const cash = parseFloat(document.getElementById('cash').value) || 0;
+            const gold = parseFloat(document.getElementById('gold').value) || 0;
+            const silver = parseFloat(document.getElementById('silver').value) || 0;
+            const investments = parseFloat(document.getElementById('investments').value) || 0;
+            const money_owed = parseFloat(document.getElementById('money_owed').value) || 0;
+            const stock = parseFloat(document.getElementById('stock').value) || 0;
+            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            const short_term = parseFloat(document.getElementById('short_term').value) || 0;
+            const other_expenses = parseFloat(document.getElementById('other_expenses').value) || 0;
+
+            const total_assets = cash + gold + silver + investments + money_owed + stock;
+            const total_expenses = expenses + short_term + other_expenses;
+            const net_assets = total_assets - total_expenses;
+            const nisab = 4625.21;
+
+            document.getElementById('total_assets').innerText = total_assets.toFixed(2);
+            document.getElementById('total_expenses').innerText = total_expenses.toFixed(2);
+
+            if (net_assets > nisab) {
+                document.getElementById('zakat_due').innerText = 'ZAKAT DUE';
+                document.getElementById('zakat_due').style.color = '#d9534f';
+            } else {
+                document.getElementById('zakat_due').innerText = 'ZAKAT NOT DUE';
+                document.getElementById('zakat_due').style.color = '#5cb85c';
+            }
+        });
+
+
+
+
+        document.getElementById('subscribe-btn').addEventListener('click', function () {
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
+
+            if (emailPattern.test(email)) {
+                // Inject message into modal body
+                document.querySelector('#subscribeModal .modal-body').innerHTML = `Thanks for subscribing! Your email: <strong>${email}</strong>`;
+                // Show the modal
+                $('#subscribeModal').modal('show');
+                emailInput.value = ''; // Clear the input field
+                emailInput.classList.remove('blink'); // Remove the blink class if email is valid
+            } else {
+                emailInput.classList.add('blink'); // Add the blink class if email is invalid
+                setTimeout(() => {
+                    emailInput.classList.remove('blink'); // Remove blink class after some time
+                }, 3000);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

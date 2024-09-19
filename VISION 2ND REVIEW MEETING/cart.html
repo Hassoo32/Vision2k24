@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Details</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Blue gradient background */
+}
+
+
+/* Other styles remain unchanged */
+
+
+
+
+
+/* Ensure other elements have suitable background or transparency if needed */
+
+
+
+  
+
+.cart-container {
+    background-color: #120a78; /* Slightly transparent to show the background image */
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 8px 16px #fff;
+    text-align: center;
+}
+
+        .cart-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-item img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .cart-item div {
+            flex: 1;
+            text-align: left;
+        }
+
+        .cart-item h3, .cart-item .price {
+            margin: 5px 0;
+            color: #120a78;
+        }
+
+        .cart-item .price {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .quantity {
+            margin: 10px 0;
+        }
+
+        .quantity input {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            font-size: 1.1em;
+        }
+
+        .remove-cart {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .remove-cart:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+        }
+
+        .clear-cart {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .clear-cart:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+        }
+
+        .proceed-now {
+            background-color: #120a78;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .proceed-now:hover {
+            background-color: #120a78;
+            transform: scale(1.05);
+        }
+
+        .totals {
+            color: #120a78;
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .totals p {
+            margin: 5px 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #fff;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent to show the background image */
+    padding: 20px;
+    border: none;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: translateY(-50px);
+    animation: slideIn 0.4s forwards;
+}
+
+        @keyframes slideIn {
+            to {transform: translateY(0);}
+        }
+
+        .close {
+            color: #333;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #ff0000;
+        }
+
+        .modal h2 {
+            color: #120a78;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .payment-option {
+            background-color: #120a78;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .payment-option:hover {
+            background-color: #120a78;
+            transform: scale(1.05);
+        }
+
+        /* Payment Forms */
+        .payment-form {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            color: #333;
+        }
+
+        .payment-form h3 {
+            color: #120a78;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .payment-form input[type="text"], 
+        .payment-form input[type="email"], 
+        .payment-form input[type="number"], 
+        .payment-form input[type="date"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .payment-form input:focus {
+            border-color: #120a78;
+            box-shadow: 0 0 5px rgba(2, 136, 209, 0.3);
+            outline: none;
+        }
+
+        .payment-form button {
+            background-color: #120a78;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .payment-form button:hover {
+            background-color: #120a78;
+            transform: scale(1.05);
+        }
+
+        /* Success Alert Styles */
+        .alert-success {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeOut {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        .alert-success .checkmark {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            color: #4CAF50;
+            font-size: 2.5em;
+            line-height: 50px;
+            text-align: center;
+            margin-right: 15px;
+            animation: tick 0.5s;
+        }
+
+        @keyframes tick {
+            0% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .alert-success .message {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.5em;
+        }
+        .go-back {
+    background-color: #120a78;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.go-back:hover {
+    background-color: #120a78;
+    transform: scale(1.05);
+}
+
+    </style>
+    <script>
+        function loadCart() {
+            const cartContainer = document.getElementById('cart-container');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p class="price">$${item.price.toFixed(2)}</p>
+                        <div class="quantity">
+                            <input type="number" id="quantity-${index}" value="${item.quantity}" onchange="updateCart(${index})">
+                        </div>
+                        <button class="remove-cart" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+
+                cartContainer.appendChild(cartItem);
+                subtotal += item.price * item.quantity;
+            });
+
+            updateTotals(subtotal);
+        }
+
+        function updateCart(index) {
+            const quantity = document.getElementById(`quantity-${index}`).value;
+            const price = parseFloat(document.getElementById(`price-${index}`).textContent.replace('$', ''));
+            const subtotal = price * quantity;
+
+            updateTotals(subtotal);
+        }
+
+        function updateTotals(subtotal) {
+            const taxFee = 0.10 * subtotal; // 10% tax
+            const shippingFee = 15; // flat shipping fee
+            const grandTotal = subtotal + taxFee + shippingFee;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('grand-total').textContent = `$${grandTotal.toFixed(2)}`;
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            location.reload();
+        }
+
+        function proceedToPayment() {
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function showPaymentForm(method) {
+            const forms = document.querySelectorAll('.payment-form');
+            forms.forEach(form => form.style.display = 'none');
+
+            if (method === 'credit') {
+                document.getElementById('creditForm').style.display = 'block';
+            } else if (method === 'paypal') {
+                document.getElementById('paypalForm').style.display = 'block';
+            } else if (method === 'bank') {
+                document.getElementById('bankForm').style.display = 'block';
+            }
+        }
+
+        function handlePayment() {
+            // Hide the payment modal
+            closeModal();
+            // Show the success alert
+            const successAlert = document.getElementById('successAlert');
+            successAlert.style.display = 'block';
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+            }, 3000); // Hide alert after 3 seconds
+        }
+
+        window.onload = loadCart;
+    </script>
+</head>
+<body>
+
+    <button class="go-back" onclick="window.history.back()">Go Back</button>
+
+
+<div class="cart-container" id="cart-container">
+    <h2>Donation Box</h2>
+    <!-- Cart items will be loaded here -->
+</div>
+
+<button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+<button class="proceed-now" onclick="proceedToPayment()">Proceed to Checkout</button>
+
+<div class="totals">
+    <p>Subtotal: <span id="subtotal"></span></p>
+    <p>Grand Total: <span id="grand-total"></span></p>
+</div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Select Payment Method</h2>
+        <button class="payment-option" onclick="showPaymentForm('credit')">Credit Card</button>
+        <button class="payment-option" onclick="showPaymentForm('paypal')">PayPal</button>
+        <button class="payment-option" onclick="showPaymentForm('bank')">Bank Transfer</button>
+
+        <!-- Credit Card Payment Form -->
+        <div id="creditForm" class="payment-form">
+            <h3>Credit Card Payment</h3>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Cardholder Name">
+            <input type="text" placeholder="Expiration Date (MM/YY)">
+            <input type="number" placeholder="CVV">
+            <button onclick="handlePayment()">Pay Now</button>
+        </div>
+
+        <!-- PayPal Payment Form -->
+        <div id="paypalForm" class="payment-form">
+            <h3>PayPal Payment</h3>
+            <input type="email" placeholder="PayPal Email">
+            <button onclick="handlePayment()">Pay Now</button>
+        </div>
+
+        <!-- Bank Transfer Payment Form -->
+        <div id="bankForm" class="payment-form">
+            <h3>Bank Transfer Payment</h3>
+            <input type="text" placeholder="Account Holder Name">
+            <input type="text" placeholder="Account Number">
+            <input type="text" placeholder="Bank Name">
+            <input type="text" placeholder="SWIFT/BIC">
+            <button onclick="handlePayment()">Pay Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Alert -->
+<div id="successAlert" class="alert-success">
+    <div class="checkmark">&#10003;</div>
+    <div class="message">Payment Successful! Thank you for your purchase.</div>
+</div>
+
+<script>
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.getElementById('cart-container');
+        let subtotal = 0;
+
+        cart.forEach((item, index) => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div>
+                    <h3>${item.name}</h3>
+                    <div class="price">$<span id="price-${index}">${item.price}</span></div>
+                    <div class="quantity">
+                        <label for="quantity-${index}">Quantity: </label>
+                        <input type="number" id="quantity-${index}" value="1" min="1" onchange="updateCart(${index})">
+                    </div>
+                    <button class="remove-cart" onclick="removeItem(${index})">Remove</button>
+                </div>
+            `;
+
+            cartContainer.appendChild(cartItem);
+            subtotal += item.price;
+        });
+
+        updateTotals(subtotal);
+    }
+
+    function updateCart(index) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const quantity = document.getElementById(`quantity-${index}`).value;
+        const price = cart[index].price;
+        const totalPrice = price * quantity;
+        document.getElementById(`price-${index}`).textContent = totalPrice;
+
+        let subtotal = 0;
+        cart.forEach((item, idx) => {
+            const quantity = document.getElementById(`quantity-${idx}`).value;
+            subtotal += item.price * quantity;
+        });
+
+        updateTotals(subtotal);
+    }
+
+    function updateTotals(subtotal) {
+        const tax = 0; // Add tax calculation if needed
+        const grandTotal = subtotal + tax;
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('grand-total').textContent = `$${grandTotal.toFixed(2)}`;
+    }
+
+    function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        alert('Cart has been cleared.');
+        window.location.href = 'index.html';
+    }
+
+    window.onload = loadCart;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>sheltering Heart Orphanage .org</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap"
+        rel="stylesheet">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+</head>
+<style>
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .blinking-button {
+        animation: blink 1s infinite;
+    }
+
+    .user-name {
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .success-message {
+        display: none;
+        text-align: center;
+        margin: 20px;
+    }
+
+    /* Modal Title Styling */
+    .modal-header {
+        background-color: #f8f9fa;
+        /* Light gray background for the header */
+        border-bottom: 1px solid #dee2e6;
+        /* Light gray border */
+        text-align: center;
+        /* Center align the title */
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+        /* Larger font size for better visibility */
+        color: #343a40;
+        /* Darker color for better contrast */
+        font-weight: bold;
+        /* Bold font weight */
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    /* Error Message Styling */
+    #passwordError {
+        color: #dc3545;
+        /* Red color for error messages */
+        font-size: 0.875rem;
+        /* Slightly smaller font size */
+    }
+
+    /* Stylish Success Alert */
+    #successAlert {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        z-index: 9999;
+        background: #d4edda;
+        /* Light green background */
+        color: #155724;
+        /* Dark green text */
+        border: 1px solid #c3e6cb;
+        /* Green border */
+        text-align: center;
+        /* Center align text */
+    }
+
+    #successAlert .close {
+        color: #155724;
+        opacity: 0.8;
+    }
+
+    #successAlert .close:hover {
+        color: #0c6450;
+        opacity: 1;
+    }
+
+    #successAlert.show {
+        display: block;
+    }
+
+    /* Blinking effect for the Register button */
+    .blinking-button {
+        animation: blinker 1.5s linear infinite;
+        background-color: #120a78;
+        color: white;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    /* Button blinking animation */
+    .btn-blink {
+        animation: blinkAnimation 1s infinite;
+    }
+
+    @keyframes blinkAnimation {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+
+    /* Overlay style for the background */
+    .modal-open .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+
+
+    .typing-animation {
+            border-right: 2px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: black;
+            }
+        }
+
+        /* Blinking Button CSS */
+        .blinking-button {
+            animation: blink-animation 1s infinite;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        @keyframes blink-animation {
+            0% {
+                background-color: red;
+            }
+
+            50% {
+                background-color: blue;
+            }
+
+            100% {
+                background-color: red;
+            }
+        }
+
+        /* Hover Effect */
+        .blinking-button:hover {
+            background-color: transparent;
+            opacity: 0.7;
+        }
+
+        /* Custom CSS for modal close button */
+        .modal-footer .btn-secondary {
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+
+        .modal-footer .btn-secondary:hover {
+            background-color: darkblue;
+        }
+
+        /* About section styles */
+        .about_section {
+            padding: 20px;
+        }
+
+        .about_container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about_item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about_item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (min-width: 768px) {
+            .about_item {
+                flex-direction: row;
+            }
+
+            .about_item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about_item {
+                flex-direction: column;
+            }
+        }
+
+        /* Footer styles */
+        .footer_section {
+            padding: 20px;
+        }
+
+        .footer_section_2 {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 767px) {
+            .footer_section_2 {
+                text-align: center;
+            }
+        }
+
+        /* Blinking effect for invalid email */
+        .blinking {
+            animation: blink-animation 1s infinite;
+        }
+
+        /* Heading styles */
+        .about-heading {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+</style>
+
+<body>
+    <!-- header section start -->
+    <!-- header section start -->
+    <div class="header_section">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <span id="userName" class="nav-link">Welcome Guest</span> <!-- Styled as navbar text -->
+            </li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donate.html">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gellery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mission.html">Our Mission</a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-primary mr-2 blinking-button" id="registerButton" data-toggle="modal"
+                data-target="#registerModal">
+                <i class="fa fa-user"></i> Register
+            </a>
+
+            <a href="zakatcalculater.html"><button class="donate_btn" type="button">Zakat Calculator</button></a>
+        </div>
+    </nav>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" pattern=".{6,}"
+                                title="Password must be at least 6 characters long" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                            <small id="passwordError" class="form-text text-danger" style="display: none;">Passwords do
+                                not match!</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="btn btn-primary btn-blink" data-toggle="modal"
+                            data-target="#myModal">
+                            Confirm By Mail
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Success Alert -->
+    <div id="successAlert" class="alert alert-success alert-dismissible fade" role="alert" style="display:none;">
+        <strong>Thanks for Registration!</strong> You have successfully registered.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Modal Body with Form -->
+                <div class="modal-body">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace with your Access Key -->
+                        <input type="hidden" name="access_key" value="c1579c04-c40a-43f6-a6ea-be5db3daf8b6">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter your email" required>
+                        </div>
+
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <!-- Custom Confirmation / Success Page -->
+                        <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html">
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header section end -->
+    <!-- banner section start -->
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="banner_taital">Home Is Life</h1>
+                                <p class="banner_text">At <a href="index.html"><span style="color: red;">Sheltering
+                                            Heart
+                                            Orphanage. org </span></a>, we believe that every child deserves a loving
+                                    and nurturing
+                                    environment to thrive. Our orphanage is more than just a shelter; it's a place where
+                                    children
+                                    find hope, love, and a family they can call their own.</p>
+                                <div class="read_bt"><a href="mission.html">Read More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-sm-12">
+                            <h1 class="banner_taital">Education Needs</h1>
+                            <p class="banner_text">"Ensuring every child receives tailored educational support to
+                                empower their
+                                future. We <a href="index.html"><span style="color: red;">Sheltering Heart Orphanage.
+                                        org
+                                    </span></a> prioritize education as a cornerstone, providing personalized learning
+                                opportunities for every child in our care." </p>
+                            <div class="read_bt"><a href="mission.html">Read More</a></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-sm-12">
+                            <h1 class="banner_taital">Sponser An Orphan</h1>
+                            <p class="banner_text">Sponsor an orphan and transform their future with your kindness. Join
+                                us <a href="index.html"><span style="color: red;">Sheltering Heart Orphanage. org
+                                    </span></a> in
+                                making a lasting impact in the lives of children who need it most." </p>
+                            <div class="read_bt"><a href="mission.html">Read More</a></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-sm-12">
+                            <h1 class="banner_taital">Help Poor Child</h1>
+                            <p class="banner_text">"We <a href="index.html"><span style="color: red;">Sheltering Heart
+                                        Orphanage. org </span></a>Providing essential care and support to orphaned
+                                children,
+                                offering them a loving home and a brighter future".</p>
+                            <div class="read_bt"><a href="mission.html">Read More</a></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-sm-12">
+                            <h1 class="banner_taital">Environment</h1>
+                            <p class="banner_text">At <a href="index.html"><span style="color: red;">Sheltering Heart
+                                        Orphanage. org </span></a>, our mission is to create a safe, nurturing
+                                environment where
+                                every child can thrive. We prioritize emotional well-being, stability, and a sense of
+                                belonging.
+                            </p>
+                            <div class="read_bt"><a href="mission.html">Read More</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="donation_box">
+
+        </div>
+        <div class="fundraise_section">
+            <div class="fundraise_section_main">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="box_main">
+                            <div class="icon_1"><img src="images/icon-1.png"></div>
+                            <h4 class="volunteer_text">VOLUNTEERS</h4>
+                            <p class="lorem_text">Join your hand with us for better life and future.</p>
+                            <div class="join_bt"><a href="contact.html">Join Now</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_main active">
+                            <div class="icon_1"><img src="images/icon-2.png"></div>
+                            <h4 class="volunteer_text">FUNDRAISE</h4>
+                            <p class="lorem_text">Charity non profit organization a supported by a community</p>
+                            <div class="join_bt"><a href="contact.html">Join Now</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_main">
+                            <div class="icon_1"><img src="images/icon-3.png"></div>
+                            <h4 class="volunteer_text">DONATION</h4>
+                            <p class="lorem_text">Support by cummunity leaaders , corporte sponsers , etc</p>
+                            <div class="join_bt"><a href="contact.html">Join Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- banner section end -->
+
+    <!-- about section start -->
+    <div class="about_section layout_padding">
+        <div class="container about_container">
+            <div class="about-heading" id="aboutHeading" style="color: white;">About Us</div>
+            <div class="about_item">
+                <div class="about_text">
+                    <p>Welcome to <a href="index.html"><span style="color: #f64646;">Sheltering Heart Orphanage.
+                                org</span></a>, a place where hope and love come together to create a brighter future
+                        for children in need. Founded on the principles of compassion, respect, and community, our
+                        mission is to provide a safe and nurturing environment where every child can thrive. Our
+                        dedicated team of caregivers and volunteers work tirelessly to ensure that each child receives
+                        the care, education, and emotional support they deserve. We offer a range of programs designed
+                        to promote personal growth, academic success, and social development.</p>
+                </div>
+                <div class="about_img"><img src="images/health.jpg" alt="Health"></div>
+            </div>
+            <div class="about_item">
+                <div class="about_text">
+                    <p>At <a href="index.html"><span style="color: #f64646 ;">Sheltering Heart Orphanage.
+                                org</span></a>, we believe that every child has the potential to achieve great things,
+                        and we are committed to helping them realize their dreams. Join us in our mission to make a
+                        lasting impact on the lives of these children and create a better future for all.</p>
+                </div>
+                <div class="about_img"><img src="images/home.jpg" alt="Home"></div>
+            </div>
+            <center><div class="readmore_bt"><a href="#" class="blinking-button" data-toggle="modal"
+                    data-target="#readMoreModal">Read more</a></div></center>
+        </div>
+    </div>
+
+
+     <!-- Modal for Read More -->
+     <div class="modal fade" id="readMoreModal" tabindex="-1" role="dialog" aria-labelledby="readMoreModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="readMoreModalLabel">More Information</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 To get more information about us, you can also <a href="contact.html"><span style="color: red;">contact us</span></a>...
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
+    <!-- about section end -->
+
+
+     <!-- mission section start -->
+   <div class="mission_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="mission_taital">Our Mission</h1>
+             <p class="mission_text">Our mission at <a href="index.html"><span style="color:red;">Sheltering Heart
+                      Orphanage. org </span></a> is to provide loving care, education, and opportunities for every
+                child in our care.
+                We are committed to creating a supportive environment where children can heal, grow, and build a
+                brighter future.
+                Through empowerment and advocacy, we aim to ensure that every child feels valued and equipped to
+                succeed.
+                Join us in making a lasting impact by supporting our mission to nurture and uplift orphaned and
+                vulnerable children.</p>
+          </div>
+       </div>
+    </div>
+    <div class="mission_section_2">
+       <div class="row">
+          <div class="offset-md-2"></div>
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/educations.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">Every child deserved an education</h4>
+                      <p class="alteration_text"> At <a href="index.html"><span style="color: black;">Sheltering Heart
+                               Orphanage. org </span></a>, our mission is to provide every child with access to
+                         quality education, fostering academic growth and essential life skills. We believe in
+                         empowering children through learning, ensuring they have the tools to succeed and build a
+                         brighter future.</p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="about.html">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/our mission health.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">Health is Wealth</h4>
+                      <p class="alteration_text">At <a href="index.html"><span style="color: black;">Sheltering Heart
+                               Orphanage. org </span></a> , our mission is to ensure every child receives
+                         comprehensive healthcare from dedicated doctors. We prioritize regular check-ups,
+                         vaccinations, and medical care to promote overall well-being. Our goal is to provide a
+                         healthy foundation for a brighter future.</p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="about.html">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="mission_section_2">
+       <div class="row">
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/orphan scholarship.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">Sponsor an orphan</h4>
+                      <p class="alteration_text">Sponsor an orphan and transform their future with your kindness. Join
+                         us <a href="index.html"><span style="color: black;">Sheltering Heart Orphanage. org
+                            </span></a> in making a lasting impact in the lives of children who need it most."</p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="about.html">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/home in hand.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">Home is Life </h4>
+                      <p class="alteration_text">At <a href="index.html"><span style="color: black;">Sheltering Heart
+                               Orphanage. org </span></a>, we believe that every child deserves a loving and nurturing
+                         environment to thrive. Our orphanage is more than just a shelter; it's a place where children
+                         find hope, love, and a family they can call their own.</p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="#">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="offset-md-2"></div>
+       </div>
+    </div>
+    <div class="mission_section_2">
+       <div class="row">
+          <div class="offset-md-2"></div>
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/or mission environment.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">ENVIRONMENT</h4>
+                      <p class="alteration_text">At <a href="index.html"><span style="color: black;">Sheltering Heart
+                               Orphanage. org </span></a>, our mission is to create a safe, nurturing environment
+                         where every child can thrive. We prioritize emotional well-being, stability, and a sense of
+                         belonging. Our goal is to foster a supportive community that encourages growth and happiness.
+                      </p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="about.html">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-5">
+             <div class="container_main">
+                <img src="images/cloth3.jpg" alt="Avatar" class="image">
+                <div class="overlay">
+                   <div class="text">
+                      <h4 class="some_text">Clothes </h4>
+                      <p class="alteration_text">At <a href="index.html"><span style="color: black;">Sheltering Heart
+                               Orphanage. org </span></a>, our mission is to ensure every child has access to clean,
+                         appropriate clothing. We provide seasonal outfits and necessities to promote comfort,
+                         dignity, and confidence. Our goal is to meet their basic needs and foster a
+                         sense of well-being.</p>
+                      <div class="btn_main">
+                         <div class="donate_bt"><a href="about.html">Read More</a></div>
+                         <div class="donate_bt"><a href="donate.html">Donate Now</a></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- mission section end -->
+
+ <!-- donate section start -->
+ <div class="donate_section layout_padding">
+    <div class="container">
+       <h1 class="donate_taital">ISLAM SAYS ABOUT DONATION </h1>
+       <div class="donate_taital_main">
+          <div id="main_slider" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                <div class="carousel-item active">
+                   <div class="donate_left">
+                      <div class="client_img"><img src="images/kaaba-186622_1280.jpg"></div>
+                   </div>
+                   <div class="donate_right">
+                      <h3 class="client_name_text">Qur'an (2:261)</h3>
+                      <p class="dummy_text">"The example of those who spend their wealth in the way of Allah is like a
+                         seed [of grain] that sprouts seven ears; in every ear there are a hundred grains. And Allah
+                         multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing."</p>
+                   </div>
+                </div>
+                <div class="carousel-item">
+                   <div class="donate_left">
+                      <div class="client_img"><img src="images/masjid-nabawi-3341739_1280.jpg"></div>
+                   </div>
+                   <div class="donate_right">
+                      <h3 class="client_name_text">Prophet Muhammad (Peace Be Upon Him)</h3>
+                      <p class="dummy_text">.."The best charity is that given in Ramadan." - [At-Tirmidhi] <br>
+                         .."Charity does not decrease wealth." - [Sahih Muslim] <br>
+                         .."Give charity without delay, for it stands in the way of calamity." - [Al-Tirmidhi]</p>
+                   </div>
+                </div>
+                <div class="carousel-item">
+                   <div class="donate_left">
+                      <div class="client_img"><img src="images/masjid-nabi-4529632_1280.jpg"></div>
+                   </div>
+                   <div class="donate_right">
+                      <h3 class="client_name_text">Prophet Muhammad (Peace Be Upon Him)</h3>
+                      <p class="dummy_text">.."Save yourself from hellfire by giving even half a date-fruit in
+                         charity." - [Sahih Bukhari] <br>
+                         .."The best of all charities is that which is given to the indigent." - [Al-Tabarani]
+                         .."Charity given to a poor person is charity, and charity given to a relative is two things:
+                         charity and maintaining the ties of kinship." - [Sunan Ibn Majah]</p>
+
+                   </div>
+                </div>
+             </div>
+             <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+             </a>
+             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+             </a>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- donate section end -->
+
+    <!-- footer section start -->
+    <div class="footer_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="footer_logo"><img src="images/footer-logo.png"></div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">NAVIGATION</h4>
+                    <div class="footer_menu_main">
+                        <div class="footer_menu_left">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="donate.html">Donate</a></li>
+                                    <li><a href="contact.html">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer_menu_right">
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="gellery.html">Gellery</a></li>
+                                    <li><a href="mission.html">Our Mission</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <h4 class="footer_taital">address</h4>
+                    <p class="footer_text">North Karachi Aptech, Karachi, Pakistan</p>
+                    <p class="footer_text">+92 12345678</p>
+                    <p class="footer_text">shelteringheartorphanage@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer_section_2">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                        <div class="social_icon">
+                            <ul>
+                                <li><a href="https://www.google.com/search?gs_ssp=eJzj4tLP1TfIyK1MKy5TYDRgdGDw4khLTE5Nys_PBgBmYAfL&q=facebook&oq=&gs_lcrp=EgZjaHJvbWUqDwgBEC4YJxjHARjqAhjRAzIJCAAQIxgnGOoCMg8IARAuGCcYxwEY6gIY0QMyCQgCECMYJxjqAjIJCAMQIxgnGOoCMg8IBBAuGCcYxwEY6gIY0QMyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQkyMTg5ajBqMTWoAgiwAgE&sourceid=chrome&ie=UTF-8"><img src="images/fb-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=twitter&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWII1Mbg8nqF2GBFeqtLNBzJBuLy5Iw%3A1724477955279&ei=A3LJZpDgENaJkdUP1-m80Qo&gs_ssp=eJzj4tLP1TfIyDMsS05XYDRgdGDwYi8pzywpSS0CAFnOB00&oq=twitt&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXR3aXR0KgIIADIQEC4YgAQY0QMYxwEYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIQEAAYgAQYsQMYQxiDARiKBTIKEAAYgAQYQxiKBTIQEAAYgAQYsQMYQxiDARiKBTILEAAYgAQYsQMYgwEyHRAuGIAEGNEDGMcBGIoFGJcFGNwEGN4EGOAE2AECSL4oUABYpxdwAngBkAEAmAHlBKAB2A-qAQkyLTQuMS4wLjG4AQPIAQD4AQGYAgmgAv0eqAITwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAg0QLhjHARgnGOoCGK8BwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICGRAuGIAEGNEDGEMYtAIYxwEYigUY6gLYAQHCAgoQIxiABBgnGIoFwgIQEC4YgAQYxwEYJxiKBRivAcICBBAjGCfCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIFEAAYgATCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgILEC4YgAQYsQMYgwHCAhMQLhiABBjRAxjHARgnGMkDGIoFwgIREAAYgAQYkQIYsQMYgwEYigXCAggQLhiABBixA8ICCxAAGIAEGJIDGIoFwgIHECMYsQIYJ8ICGRAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigXCAg0QABiABBixAxiDARgKmAMlugYGCAEQARgBugYGCAIQARgUkgcPMi4wLjMuMS4xLjEuMC4xoAfuTQ&sclient=gws-wiz-serp"><img src="images/twitter-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=linkedin&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIK0ivPVaCZFzWy7h-BlcPL9Gi_M2A%3A1724478043557&ei=W3LJZujfIeifkdUPvLD26Qc&oq=link&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGxpbmsqAggAMgoQIxiABBgnGIoFMhkQLhiABBixAxjRAxhDGIMBGMcBGMkDGIoFMhMQLhiABBixAxjRAxhDGMcBGIoFMgoQABiABBhDGIoFMhAQLhiABBhDGMcBGIoFGK8BMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMhAQABiABBixAxhDGIMBGIoFMgsQABiABBiSAxiKBTILEAAYgAQYkgMYigVIuCxQAFicFHABeAGQAQCYAa8CoAGxB6oBBTItMy4xuAEDyAEA-AEBmAIIoAL4OKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIKEC4YgAQYQxiKBcICEBAuGIAEGNEDGEMYxwEYigXCAiUQLhiABBixAxjRAxhDGIMBGMcBGIoFGJcFGNwEGN4EGOAE2AECwgINEAAYgAQYsQMYQxiKBcICKBAuGIAEGLEDGNEDGEMYgwEYxwEYyQMYigUYlwUY3AQY3gQY4ATYAQKYAxG6BgYIARABGAG6BgYIAhABGBSSBw0xLjAuMy4xLjctMi4xoAePPQ&sclient=gws-wiz-serp"><img src="images/linkedin-icon.png"></a></li>
+                                <li><a href="https://www.google.com/search?q=instagram&sca_esv=decdff33baf71fbd&sca_upv=1&sxsrf=ADLYWIKQCTBOQ_C4b3NU6PMXS2NzRivgUA%3A1724477834890&ei=inHJZoOJNtadkdUPtfeQgA8&oq=insta&gs_lp=Egxnd3Mtd2l6LXNlcnAiBWluc3RhKgIIADIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTILEAAYgAQYsQMYgwEyEBAAGIAEGLEDGEMYgwEYigUyDhAAGIAEGLEDGIMBGIoFSNszUKYJWLkScAF4AZABApgB_RagAY9NqgEDOS00uAEDyAEA-AEBmAIDoALBJKgCFMICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgINEC4YxwEYJxjqAhivAcICExAAGIAEGEMYtAIYigUY6gLYAQHCAhQQABiABBjjBBi0AhjpBBjqAtgBAZgDFboGBggBEAEYAZIHBzEuNy0xLjGgB4so&sclient=gws-wiz-serp"><img src="images/instagram-icon.png"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="newsletter_section">
+                        <input type="email" id="emailInput" class="address_text" placeholder="Enter Your Email"
+                            name="text">
+                        <button id="subscribeBtn" type="button" class="get_bt">SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+
+
+      <!-- Modal for Subscribe -->
+      <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="infoModalLabel">Subscription</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  Thank you for subscribing to our newsletter. You will receive the latest updates and offers in
+                  your inbox. If you have any questions, feel free to reach out to us.
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript -->
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <!-- jawa script  navbar ki he new -->
+
+
+    <!-- Custom JS for Validation -->
+
+    <script>
+        $(document).ready(function () {
+            $('#registerForm').on('submit', function (e) {
+                e.preventDefault(); // Prevent the form from submitting the traditional way
+
+                var firstName = $('#firstName').val(); // Get the first name from the form
+                var password = $('#password').val();
+                var confirmPassword = $('#confirmPassword').val();
+
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    $('#passwordError').show(); // Show password mismatch message
+                    return;
+                }
+
+                // Hide the password mismatch message
+                $('#passwordError').hide();
+
+                // Replace "Welcome Guest" with the registered user's first name
+                $('#userName').text('Welcome, ' + firstName);
+
+                // Stop the blinking effect of the Register button
+                $('#registerButton').removeClass('blinking-button').addClass('btn-success').text('Logout');
+
+                // Show the success alert
+                $('#successAlert').show().addClass('show');
+
+                // Hide the alert after 3 seconds
+                setTimeout(function () {
+                    $('#successAlert').fadeOut('slow', function () {
+                        $(this).removeClass('show').hide();
+                    });
+                }, 3000); // Time in milliseconds (3000 ms = 3 seconds)
+
+                // Hide the modal
+                $('#registerModal').modal();
+
+                // Reset the form
+                $('#registerForm')[0].reset();
+            });
+
+            // Handle the logout button click
+            $('#registerButton').on('click', function () {
+                if ($(this).text() === 'Logout') {
+                    // Reset to "Welcome Guest"
+                    $('#userName').text('Welcome Guest');
+
+                    // Convert the button back to Register
+                    $(this).removeClass('btn-success').addClass('blinking-button').text('Register');
+                }
+            });
+        });   
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
+
+    <script>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Perform the form submission using Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: new FormData(event.target)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    // Hide modal
+                    $('#myModal').modal('hide');
+
+                    if (result.success) {
+                        // Show the SweetAlert success message with user name and email
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thank You, ' + name + '!',
+                            text: 'Please check your Email id ' + email ,
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            // Reset the form after showing the alert
+                            document.getElementById('contactForm').reset();
+                        });
+                    } else {
+                        // Handle error
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thank You, ' + name + '!',
+                            text: 'Please check your Email id ' + email ,
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                })
+                .catch(error => {
+                    // Handle fetch error
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank You, ' + name + '!',
+                        text: 'Please check your Email id ' + email ,
+                        confirmButtonText: 'OK'
+                    });
+                });
+        });
+    </script>
+
+
+<!-- Javascript files-->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- javascript -->
+<script src="js/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+<script>
+    // Typing animation script for the About Us heading
+    var i = 0;
+    var txt = 'About Us'; /* The text */
+    var speed = 100; /* The speed/duration of the typing effect in milliseconds */
+    var delay = 1000; /* Delay before restarting the typing animation */
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("aboutHeading").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        } else {
+            setTimeout(function () {
+                document.getElementById("aboutHeading").innerHTML = '';
+                i = 0;
+                setTimeout(typeWriter, speed);
+            }, delay);
+        }
+    }
+
+    window.onload = function () {
+        typeWriter();
+    };
+
+    // Custom JavaScript for email validation and modal display
+    document.getElementById("subscribeBtn").addEventListener("click", function () {
+        const emailInput = document.getElementById("emailInput");
+        const email = emailInput.value.trim();
+
+        // Simple email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            emailInput.classList.add("blinking");
+            setTimeout(() => {
+                emailInput.classList.remove("blinking");
+            }, 3000); // Remove blinking after 3 seconds
+        } else {
+            // Hide blinking effect
+            emailInput.classList.remove("blinking");
+            // Show the subscribe modal
+            $('#infoModal').modal('show');
+        }
+    });
+
+    // Custom JavaScript for Read More button
+    document.querySelector('.readmore_bt a').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        // Show the Read More modal
+        $('#readMoreModal').modal('show');
+    });
+</script>
+</body>
+
+</html>
